@@ -5,17 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="vue.js"></script>
   </head>
   <body>
-    <div id="app">Hello world! My name is {{ name }}.</div>
+    <div id="app">
+      Hello world! My name is {{ name }}.
+      <div>
+        <label>
+          Change your name!
+          <input v-model="name" />
+        </label>
+        <div>
+          <input
+            type="checkbox"
+            id="initial-checkbox"
+            value="initial"
+            v-model="checked"
+          />
+          <label for="initial-checkbox">Initial Checkbox</label>
+          <input
+            type="checkbox"
+            id="second-checkbox"
+            value="second"
+            v-model="checked"
+          />
+          <label for="second-checkbox">second Checkbox</label>
+          <input
+            type="checkbox"
+            id="third-checkbox"
+            value="third"
+            v-model="checked"
+          />
+          <label for="third-checkbox">third Checkbox</label>
+          <span>{{ checked }}</span>
+        </div>
+        <div>
+          <input type="radio" id="Option1" value="Option1" v-model="option" />
+          <label for="Option1">Option1</label>
+          <input type="radio" id="Option2" value="Option2" v-model="option" />
+          <label for="Option2">Option2</label>
+        </div>
+      </div>
+      <div>
+        <select v-model="select_value">
+          <option v-for="option in select" :value="option.val">
+            {{ option.title }}
+          </option>
+        </select>
+        <span>{{ select }}</span>
+      </div>
+      <div v-if="show">
+        <div v-for="item in items">
+          {{ item.title }}
+        </div>
+      </div>
+      <div v-else>No List for you!</div>
+    </div>
   </body>
   <script>
     new Vue({
       el: '#app',
       data: {
-        name: 'Nando'
+        name: 'Nando',
+        items: [
+          { id: 0, title: 'First' },
+          { id: 1, title: 'List' },
+          { id: 2, title: 'rendered' }
+        ],
+        show: true,
+        checked: [],
+        option: '',
+        select: [
+          { title: 'option s1', val: 1 },
+          { title: 'option s2', val: 2 },
+          { title: 'option s3', val: 3 }
+        ],
+        select_value: 1
       }
     });
   </script>

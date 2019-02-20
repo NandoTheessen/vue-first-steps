@@ -60,6 +60,9 @@
         </div>
       </div>
       <div v-else>No List for you!</div>
+      <div>
+        <button @click="save()">click me!</button>
+      </div>
     </div>
   </body>
   <script>
@@ -81,6 +84,11 @@
           { title: 'option s3', val: 3 }
         ],
         select_value: 1
+      },
+      methods: {
+        save() {
+          console.log('you here buddy?');
+        }
       }
     });
   </script>

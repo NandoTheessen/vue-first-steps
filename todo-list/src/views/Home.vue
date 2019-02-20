@@ -1,17 +1,20 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Todos msg="Welcome to My Vue.js Todo App" :todos="todos"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Todos from "@/components/Todos.vue";
 
 export default {
-  name: "home",
+  name: "todos",
   components: {
-    HelloWorld
+    Todos
+  },
+  data: () => {
+    return { todos: [{ id: 1, title: "1sts", body: "1st notes body 🙉" }] };
   }
 };
 </script>
